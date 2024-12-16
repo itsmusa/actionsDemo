@@ -1,0 +1,17 @@
+name: Node testing Demo
+run-name: ${{ github.actor }} is tesing out running NodeJs on github actions
+on: [push]
+
+jobs:
+    node-test:
+        runs-on: ubuntu-latest
+
+        steps:
+            -   name: Checkout Code
+                uses: actions/checkout@v2
+            -   name: Set up Node.js
+                uses: actions/setup-node@v2
+                with:
+                    node-version: '16'
+            -   name: Run script
+                run: node file.js
