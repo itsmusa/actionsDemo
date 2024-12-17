@@ -1,0 +1,24 @@
+name: Testing fetching recent events
+run-name: ${{ github.actor }} is tesing to fetch events on github actions
+on: [push]
+
+jobs:
+  node-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: "16"
+      - name: Run script
+        run: node activity.js
+      - name: Push to repo
+        run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add .
+          git commit -m "Pushing recent events to JSON file"
+          git push
