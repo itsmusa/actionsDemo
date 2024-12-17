@@ -1,4 +1,4 @@
-// const fetch = require("node-fetch");
+const fetch = require("node-fetch");
 const fs = require("fs");
 
 // Replace 'octocat' with the desired GitHub username
